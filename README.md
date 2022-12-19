@@ -109,13 +109,17 @@ conda install -c milagraph -c conda-forge graphvite-mini cudatoolkit=$(nvcc -V |
 Before installation, make sure you have `conda` installed.
 
 ```bash
-git clone https://github.com/DeepGraphLearning/graphvite
+git clone https://github.com/happen2me/graphvite.git
 cd graphvite
 conda install -y --file conda/requirements.txt
 mkdir build
-cd build && cmake .. && make && cd -
+# This skip faiss installation. If you need visualization, remove the -DNO_FAISS=True
+cd build && cmake .. -DNO_FAISS=True && make && cd -
+# If you need visualization, modify python/setup.py following the comments
 cd python && python setup.py install && cd -
 ```
+
+If you are prompted with `No CMAKE_CUDA_COMPILER could be found`, set the `CUDACXX` environment variable to the path of `nvcc` (e.g. `/usr/local/cuda/bin/nvcc`).
 
 ### On Colab ###
 
