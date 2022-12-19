@@ -22,12 +22,13 @@ from setuptools import setup, find_packages
 from graphvite import __version__, lib_path, lib_file
 
 name = "graphvite"
-faiss_file = os.path.join(lib_path, "libfaiss.so")
+# Uncomment if you need visualization
+# faiss_file = os.path.join(lib_path, "libfaiss.so")
 project_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 # library files
 install_path = os.path.join(name, "lib")
-data_files = [(install_path, [lib_file, faiss_file])]
+data_files = [(install_path, [lib_file, ])] # add faiss_file after lib_file if you need visualization
 # configuration files
 for path, dirs, files in os.walk(os.path.join(project_path, "config")):
     install_path = os.path.join(name, os.path.relpath(path, project_path))
