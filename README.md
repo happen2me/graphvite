@@ -86,7 +86,7 @@ Requirements
 
 Generally, GraphVite works on any Linux distribution with CUDA >= 9.2.
 
-The library is compatible with Python 2.7 and 3.6/3.7.
+The library is compatible with Python 2.7 and 3.6 ~ 3.10 (3.8 to 3.10 are not thoroughly tested). 
 
 Installation
 ------------
